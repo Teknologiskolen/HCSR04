@@ -5,7 +5,7 @@
 */
 
 #include "Arduino.h"
-#include "HCSR04.h"
+#include "afstandssensor.h"
 
 AfstandsSensor::AfstandsSensor (
         int triggerPin, int echoPin) {
