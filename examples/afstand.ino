@@ -1,4 +1,4 @@
-#include <afstand.h>
+#include <afstandssensor.h>
 
 Afstandssensor afstandssensor(13, 12);  // Starter afstandssensoren på ben 13 og 12.
 
