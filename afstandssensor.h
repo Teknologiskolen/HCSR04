@@ -1,6 +1,7 @@
 /*
   HCSR04 - Arduino bibliotek for HCSR04 ultrasonic afstandssensor
-  Created by Jørgen Larsen, 30 Oktober 2019.
+  Lavet af Jørgen Larsen, 30 Oktober 2019.
+  Inspireret af Martin Sosic, June 11, 2016.
 */
 
 #ifndef HCSR04_H
