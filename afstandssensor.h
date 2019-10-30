@@ -4,8 +4,8 @@
   Inspireret af Martin Sosic, June 11, 2016.
 */
 
-#ifndef HCSR04_H
-#define HCSR04_H
+#ifndef AFSTANDSSENSOR_H
+#define AFSTANDSSENSOR_H
 
 #include "Arduino.h"
 
@@ -33,4 +33,4 @@ class AfstandsSensor {
     int triggerPin, echoPin;
 };
 
-#endif // HCSR04_H
+#endif // AFSTANDSSENSOR_H
