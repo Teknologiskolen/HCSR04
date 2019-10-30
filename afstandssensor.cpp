@@ -1,12 +1,13 @@
 /*
   HCSR04 - Arduino bibliotek for HCSR04 ultrasonic afstandssensor
-  Created by Jørgen Larsen, 30 Oktober 2019.
+  Lavet af Jørgen Larsen, 30 Oktober 2019.
+  Inspireret af Martin Sosic, June 11, 2016.
 */
 
 #include "Arduino.h"
 #include "HCSR04.h"
 
-UltraSonicDistanceSensor::UltraSonicDistanceSensor(
+AfstandsSensor::AfstandsSensor (
         int triggerPin, int echoPin) {
     this->triggerPin = triggerPin;
     this->echoPin = echoPin;
@@ -14,20 +15,20 @@ UltraSonicDistanceSensor::UltraSonicDistanceSensor(
     pinMode(echoPin, INPUT);
 }
 
-double UltraSonicDistanceSensor::measureDistanceCm() {
-    //Using the approximate formula 19.307°C results in roughly 343m/s which is the commonly used value for air.
-    return measureDistanceCm(19.307);
+double AfstandsSensor::afstandCM() {
+    //Afstanden måles ud fra en standrad temperatur på 19.307 grader celcius, hvilket svare ca til 343m/s for lyd.
+    return afstandCM(19.307);
 }
 
-double UltraSonicDistanceSensor::measureDistanceCm(float temperature) {
-    // Make sure that trigger pin is LOW.
+double AfstandsSensor::afstandCM(float temperature) {
+    // Sikre først at triggerPin er LAV
     digitalWrite(triggerPin, LOW);
     delayMicroseconds(2);
-    // Hold trigger for 10 microseconds, which is signal for sensor to measure distance.
+    //For at aktivere sensoren holdes triggerPin HØJ i 10 microsekunder.
     digitalWrite(triggerPin, HIGH);
     delayMicroseconds(10);
     digitalWrite(triggerPin, LOW);
-    // Measure the length of echo signal, which is equal to the time needed for sound to go there and back.
+    //Sensoren retunere nu afstanden med at holde echoPin HØJ i en periode svarende til afstanden målt.
     unsigned long durationMicroSec = pulseIn(echoPin, HIGH);
 
     double speedOfSoundInCmPerMs = 0.03313 + 0.0000606 * temperature; // Cair ≈ (331.3 + 0.606 ⋅ ϑ) m/s
