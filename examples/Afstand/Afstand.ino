@@ -1,5 +1,6 @@
 #include <afstandssensor.h>
 
+                                        // AfstandsSensor(triggerPin, echoPin);
 AfstandsSensor afstandssensor(13, 12);  // Starter afstandssensoren på ben 13 og 12.
 
 void setup () {
